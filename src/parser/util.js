@@ -3,7 +3,8 @@
 module.exports = {
   parseParameters,
   checkDigit,
-  convertSignedIntHexa
+  int16ToHex,
+  hexToInt16
 };
 
 // Utility functions
@@ -33,10 +34,19 @@ function checkDigit(line) {
   return false;
 }
 
-function convertSignedIntHexa(hexa) {
+function hexToInt16(hexa) {
   var value = parseInt(`${hexa}`, 16);
   if (value > 32767) {
     return (65536 - value) * -1;
   }
   return value;
+}
+
+function int16ToHex(value) {
+  if (value < 0) {
+    value += 65536;
+  }
+  return Number(value)
+    .toString(16)
+    .padStart(4, '0');
 }
