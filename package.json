@@ -1,5 +1,5 @@
 {
-  "name": "ml-legoino-util",
+  "name": "legoino-util",
   "version": "0.0.1",
   "description": "",
   "main": "./src/index.js",
@@ -10,7 +10,8 @@
     "eslint": "eslint src",
     "eslint-fix": "npm run eslint -- --fix",
     "test": "run-s testonly eslint",
-    "testonly": "jest"
+    "testonly": "jest",
+    "build": "cheminfo build"
   },
   "repository": {
     "type": "git",
@@ -41,6 +42,7 @@
     "npm-run-all": "^4.1.2"
   },
   "dependencies": {
+    "cheminfo-tools": "^1.20.2",
     "debug": "^3.1.0"
   }
 }
