@@ -4,6 +4,10 @@ const legoinoUtil = require('..');
 
 describe('legoino-util test', () => {
   test('Something to test', () => {
-    expect(true).toBe(true);
+    expect(legoinoUtil).toHaveProperty('parseMultilog');
+    expect(legoinoUtil).toHaveProperty('parseCompactLog');
+    expect(legoinoUtil).toHaveProperty('deviceIdNumberToString');
+    expect(legoinoUtil).toHaveProperty('deviceIdStringToNumber');
+    expect(legoinoUtil).toHaveProperty('addCheckDigit');
   });
 });

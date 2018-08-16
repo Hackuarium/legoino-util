@@ -2,8 +2,9 @@
 
 const debug = require('debug')('legoino:parser:processMultilogLine');
 
-const { checkDigit, parseParameters, convertSignedIntHexa } = require('./util');
 const deviceIdNumberToString = require('../util/deviceIdNumberToString');
+
+const { checkDigit, parseParameters, convertSignedIntHexa } = require('./util');
 
 module.exports = function processMultilogLine(line, options) {
   const { hasEvent = true, numberLogParameters = 26 } = options;

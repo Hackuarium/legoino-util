@@ -2,8 +2,9 @@
 
 const debug = require('debug')('legoino:parser:parseCompactLog');
 
-const { checkDigit, parseParameters, convertSignedIntHexa } = require('./util');
 const deviceIdNumberToString = require('../util/deviceIdNumberToString');
+
+const { checkDigit, parseParameters, convertSignedIntHexa } = require('./util');
 
 module.exports = function parseCompactLog(line, numberParameters) {
   var lineLength = numberParameters * 4 + 14;
@@ -22,7 +23,7 @@ module.exports = function parseCompactLog(line, numberParameters) {
   }
 
   if (checkDigit(line)) {
-    entry.epoch = parseInt(`0x${line.substring(0, 8)}`);
+    entry.epoch = parseInt(line.substring(0, 8), 16);
     parseParameters(line, 8, numberParameters, entry);
     entry.deviceId = convertSignedIntHexa(
       line.substring(8 + numberParameters * 4, 12 + numberParameters * 4)
