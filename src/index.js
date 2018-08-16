@@ -1,9 +1,9 @@
 'use strict';
 
 module.exports = {
-  parseMultilog: require('./util/parser').parseMultilog,
-  parseCompactLog: require('./util/parser').parseCompactLog,
-  idNumberToString: require('./util/idNumberToString'),
-  idStringToNumber: require('./util/idStringToNumber'),
+  parseMultilog: require('./parser/parseMultilog'),
+  parseCompactLog: require('./parser/parseCompactLog'),
+  deviceIdNumberToString: require('./util/deviceIdNumberToString'),
+  deviceIdStringToNumber: require('./util/deviceIdStringToNumber'),
   addCheckDigit: require('./util/addCheckDigit')
 };

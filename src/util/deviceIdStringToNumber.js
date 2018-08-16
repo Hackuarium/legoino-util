@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function idStringToNumber(idString) {
+module.exports = function deviceIdStringToNumber(idString) {
   if (idString === undefined) return undefined;
 
   if (idString.length === 2) {
