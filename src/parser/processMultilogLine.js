@@ -21,8 +21,8 @@ module.exports = function processMultilogLine(line, options) {
   }
 
   if (checkDigit(line)) {
-    entry.id = parseInt(`0x${line.substr(0, 8)}`);
-    entry.epoch = parseInt(`0x${line.substr(8, 8)}`);
+    entry.id = parseInt(`${line.substr(0, 8)}`, 16);
+    entry.epoch = parseInt(`${line.substr(8, 8)}`, 16);
     parseParameters(line, 16, numberLogParameters, entry);
 
     let position = 16 + numberLogParameters * 4;

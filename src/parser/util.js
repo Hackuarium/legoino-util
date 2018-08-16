@@ -27,14 +27,14 @@ function parseParameters(line, start, numberParameters, entry) {
 function checkDigit(line) {
   var checkDigit = 0;
   for (var i = 0; i < line.length; i = i + 2) {
-    checkDigit ^= parseInt(`0x${line[i]}${line[i + 1]}`);
+    checkDigit ^= parseInt(`${line[i]}${line[i + 1]}`, 16);
   }
   if (checkDigit === 0) return true;
   return false;
 }
 
 function convertSignedIntHexa(hexa) {
-  var value = parseInt(`0x${hexa}`);
+  var value = parseInt(`${hexa}`, 16);
   if (value > 32767) {
     return (65536 - value) * -1;
   }

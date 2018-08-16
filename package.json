@@ -7,7 +7,7 @@
     "src"
   ],
   "scripts": {
-    "eslint": "eslint src test",
+    "eslint": "eslint src",
     "eslint-fix": "npm run eslint -- --fix",
     "test": "run-s testonly eslint",
     "testonly": "jest"
