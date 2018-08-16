@@ -1,0 +1,43 @@
+{
+  "name": "ml-legoino-util",
+  "version": "0.0.1",
+  "description": "",
+  "main": "./src/index.js",
+  "files": [
+    "src"
+  ],
+  "scripts": {
+    "eslint": "eslint src test",
+    "eslint-fix": "npm run eslint -- --fix",
+    "test": "run-s testonly eslint",
+    "testonly": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mljs/legoino-util.git"
+  },
+  "keywords": [
+    "machine",
+    "learning",
+    "data",
+    "mining",
+    "datamining"
+  ],
+  "author": "Luc Patiny <luc@patiny.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mljs/legoino-util/issues"
+  },
+  "homepage": "https://github.com/mljs/legoino-util#readme",
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "devDependencies": {
+    "eslint": "^5.2.0",
+    "eslint-config-cheminfo": "^1.18.0",
+    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-jest": "^21.15.0",
+    "jest": "^23.4.2",
+    "npm-run-all": "^4.1.2"
+  }
+}
