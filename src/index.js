@@ -1,10 +1,9 @@
 'use strict';
 
-const defaultOptions = {};
-
-function legoinoUtil(options) {
-    options = Object.assign({}, defaultOptions, options);
-    return true;
-}
-
-module.exports = legoinoUtil;
+module.exports = {
+  parseMultilog: require('./util/parser').parseMultilog,
+  parseCompactLog: require('./util/parser').parseCompactLog,
+  idNumberToString: require('./util/idNumberToString'),
+  idStringToNumber: require('./util/idStringToNumber'),
+  addCheckDigit: require('./util/addCheckDigit')
+};
