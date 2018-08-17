@@ -5,5 +5,5 @@ module.exports = {
   parseCompactLog: require('./parser/parseCompactLog'),
   deviceIdNumberToString: require('./util/deviceIdNumberToString'),
   deviceIdStringToNumber: require('./util/deviceIdStringToNumber'),
-  addCheckDigit: require('./util/addCheckDigit')
+  calculateCheckDigit: require('./util/calculateCheckDigit')
 };

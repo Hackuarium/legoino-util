@@ -4,7 +4,9 @@ const debug = require('debug')('legoino:parser:parseCompactLog');
 
 const deviceIdNumberToString = require('../util/deviceIdNumberToString');
 
-const { checkDigit, parseParameters, convertSignedIntHexa } = require('./util');
+const checkCheckDigit = require('../util/checkCheckDigit');
+const hexToInt16 = require('../util/hexToInt16');
+const parseParameters = require('./parseParameters');
 
 module.exports = function parseCompactLog(line, numberParameters) {
   var lineLength = numberParameters * 4 + 14;
@@ -22,10 +24,10 @@ module.exports = function parseCompactLog(line, numberParameters) {
     throw new Error('Unexpected response length');
   }
 
-  if (checkDigit(line)) {
+  if (checkCheckDigit(line)) {
     entry.epoch = parseInt(line.substring(0, 8), 16);
     parseParameters(line, 8, numberParameters, entry);
-    entry.deviceId = convertSignedIntHexa(
+    entry.deviceId = hexToInt16(
       line.substring(8 + numberParameters * 4, 12 + numberParameters * 4)
     );
     if (!entry.deviceId) {

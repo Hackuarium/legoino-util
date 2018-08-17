@@ -3,8 +3,10 @@
 const debug = require('debug')('legoino:parser:processMultilogLine');
 
 const deviceIdNumberToString = require('../util/deviceIdNumberToString');
+const checkCheckDigit = require('../util/checkCheckDigit');
+const hexToInt16 = require('../util/hexToInt16');
 
-const { checkDigit, parseParameters, convertSignedIntHexa } = require('./util');
+const parseParameters = require('./parseParameters');
 
 module.exports = function processMultilogLine(line, options) {
   const { hasEvent = true, numberLogParameters = 26 } = options;
@@ -21,19 +23,19 @@ module.exports = function processMultilogLine(line, options) {
     throw new Error('Unexpected response length');
   }
 
-  if (checkDigit(line)) {
+  if (checkCheckDigit(line)) {
     entry.id = parseInt(`${line.substr(0, 8)}`, 16);
     entry.epoch = parseInt(`${line.substr(8, 8)}`, 16);
     parseParameters(line, 16, numberLogParameters, entry);
 
     let position = 16 + numberLogParameters * 4;
     if (hasEvent) {
-      entry.event = convertSignedIntHexa(line.substr(position, 4));
-      entry.eventValue = convertSignedIntHexa(line.substr(position + 4, 4));
+      entry.eventId = hexToInt16(line.substr(position, 4));
+      entry.eventValue = hexToInt16(line.substr(position + 4, 4));
       position += 8;
     }
 
-    entry.deviceId = convertSignedIntHexa(line.substr(position, 4));
+    entry.deviceId = hexToInt16(line.substr(position, 4));
     if (!entry.deviceId) {
       throw new Error('Could not parse device id in processMultilogLine');
     }

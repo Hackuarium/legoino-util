@@ -8,6 +8,6 @@ describe('legoino-util test', () => {
     expect(legoinoUtil).toHaveProperty('parseCompactLog');
     expect(legoinoUtil).toHaveProperty('deviceIdNumberToString');
     expect(legoinoUtil).toHaveProperty('deviceIdStringToNumber');
-    expect(legoinoUtil).toHaveProperty('addCheckDigit');
+    expect(legoinoUtil).toHaveProperty('calculateCheckDigit');
   });
 });

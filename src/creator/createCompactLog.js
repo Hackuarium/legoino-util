@@ -12,12 +12,26 @@
  * This means that for 26 parameters the length is 134
  */
 
-module.exports = function createCompactLog(data={},numberParameters=26) {
-    var result=
-        Number(data.id|0).toString(16).padStart(8,'0')+
-        Number(data.epoch|0).toString(16).padStart(8,'0');
-        
-    for (let i=0; i<numberParameters.length; i++) {
-        result+=
-    }
+const int16ToHex = require('../util/int16ToHex');
+const numberToLabel = require('../util/numberToLabel');
+const calculateCheckDigit = require('../util/calculateCheckDigit');
+
+module.exports = function createCompactLog(data = {}, numberParameters = 26) {
+  if (!data.parameters) data.parameters = [];
+  var result = '';
+  result += Number(data.id | 0)
+    .toString(16)
+    .padStart(8, '0');
+  result += Number(data.epoch | 0)
+    .toString(16)
+    .padStart(8, '0');
+  for (let i = 0; i < numberParameters; i++) {
+    let label = numberToLabel(i);
+    result += int16ToHex(data.parameters[label]);
+  }
+  result += int16ToHex(data.eventId);
+  result += int16ToHex(data.eventValue);
+  result += int16ToHex(data.deviceId);
+  result += int16ToHex(calculateCheckDigit(result));
+  return result.toUpperCase();
 };
