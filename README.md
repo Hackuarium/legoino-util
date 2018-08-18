@@ -1,11 +1,9 @@
 # legoino-util
 
-  [![NPM version][npm-image]][npm-url]
-  [![build status][travis-image]][travis-url]
-  [![David deps][david-image]][david-url]
-  [![npm download][download-image]][download-url]
-
-
+[![NPM version][npm-image]][npm-url]
+[![build status][travis-image]][travis-url]
+[![David deps][david-image]][david-url]
+[![npm download][download-image]][download-url]
 
 ## Installation
 
@@ -16,9 +14,23 @@
 ## Example
 
 ```js
-const legoinoUtil = require('ml-legoino-util');
+createCompactLog(
+  {
+    id: 65535,
+    epoch: 32767,
+    parameters: {
+      A: 1,
+      B: 2,
+      C: 3,
+      D: 4
+    },
+    eventId: 5,
+    eventValue: 6,
+    deviceId: 0xaaaa - 65536
+  },
+  4
+);
 ```
-
 
 ## License
 
