@@ -3,7 +3,7 @@
 const parseCompactLog = require('../parseCompactLog');
 
 test('parseCompactLog', () => {
-  var buffer = `000100000001000200030004414105`;
+  var buffer = '000100000001000200030004414105';
 
   let result = parseCompactLog(buffer, {});
 

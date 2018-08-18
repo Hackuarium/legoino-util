@@ -1,6 +1,7 @@
 'use strict';
 
 const parseParameters = require('../parseParameters');
+
 const Solar2015 = require('legoino-device-information').Solar2015;
 
 test('parseParameters', () => {

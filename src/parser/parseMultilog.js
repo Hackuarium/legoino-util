@@ -5,7 +5,7 @@ const debug = require('debug')('legoino:parser:parseMutilog');
 const processMultilogLine = require('./processMultilogLine');
 
 module.exports = function parseMultiLog(buffer, options = {}) {
-  var lines = buffer.split(/[\r\n]+/).filter(line => line);
+  var lines = buffer.split(/[\r\n]+/).filter((line) => line);
   var entries = [];
   for (var line of lines) {
     var entry = processMultilogLine(line, options);

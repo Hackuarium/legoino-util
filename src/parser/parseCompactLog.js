@@ -3,10 +3,10 @@
 const debug = require('debug')('legoino:parser:parseCompactLog');
 
 const deviceIdNumberToString = require('../util/deviceIdNumberToString');
-
 const checkCheckDigit = require('../util/checkCheckDigit');
 const calculateCheckDigit = require('../util/calculateCheckDigit');
 const hexToInt16 = require('../util/hexToInt16');
+
 const parseParameters = require('./parseParameters');
 
 module.exports = function parseCompactLog(line, options) {
@@ -24,7 +24,7 @@ module.exports = function parseCompactLog(line, options) {
   } else {
     debug('Check digit error', line);
     throw new Error(
-      'Check digit error. Should be: ' + calculateCheckDigit(line).toString(16)
+      `Check digit error. Should be: ${calculateCheckDigit(line).toString(16)}`
     );
   }
   return entry;

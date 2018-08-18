@@ -7,7 +7,7 @@ const numberToLabel = require('../util/numberToLabel');
 
 /**
  * Parse a buffer (String) containg 4 hexadecimal symbol per parameter
- * @param {String} buffer
+ * @param {string} buffer
  * @param {object} [options={}]
  * @param {boolean} [options.parameterLabel=false] Use as property name the label name
  * @param {boolean} [options.parameterInfo=false] Show in the value all the information about the parameter
