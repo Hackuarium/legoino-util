@@ -2,7 +2,6 @@
 
 const debug = require('debug')('legoino:parser:processMultilogLine');
 
-const deviceIdNumberToString = require('../util/deviceIdNumberToString');
 const checkCheckDigit = require('../util/checkCheckDigit');
 const hexToInt16 = require('../util/hexToInt16');
 
