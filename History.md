@@ -1,3 +1,8 @@
+<a name="0.0.8"></a>
+## [0.0.8](https://github.com/mljs/legoino-util/compare/v0.0.7...v0.0.8) (2018-08-18)
+
+
+
 <a name="0.0.5"></a>
 ## [0.0.5](https://github.com/mljs/legoino-util/compare/v0.0.4...v0.0.5) (2018-08-18)
 
