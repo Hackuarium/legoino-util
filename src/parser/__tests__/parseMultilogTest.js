@@ -15,7 +15,8 @@ test('parseMultilog', () => {
   let result = parseMultilog(buffer, {
     kind: 'Computer',
     parameterLabel: false,
-    parameterInfo: true
+    parameterInfo: true,
+    parametersArray: true
   });
 
   expect(result).toMatchSnapshot();

@@ -20,6 +20,11 @@ module.exports = function processMultilogLine(line, options) {
       line.substring(16, line.length - 6 - (hasEvent ? 8 : 0)),
       options
     );
+    if (options.parametersArray) {
+      entry.parametersArray = Object.keys(entry.parameters).map(
+        (parameter) => entry.parameters[parameter]
+      );
+    }
 
     if (hasEvent) {
       entry.eventId = hexToInt16(line.substr(line.length - 14, 4));
