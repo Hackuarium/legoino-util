@@ -9,33 +9,24 @@ const hexToInt16 = require('../util/hexToInt16');
 const parseParameters = require('./parseParameters');
 
 module.exports = function processMultilogLine(line, options) {
-  const { hasEvent = true, numberLogParameters = 26 } = options;
-  let lineLength = 8 + 8 + numberLogParameters * 4 + 4 + 2;
-  if (hasEvent) lineLength += 8;
+  let { hasEvent = true } = options;
+
   const entry = {};
-  if (lineLength && line.length !== lineLength) {
-    debug(
-      'Unexpected response length: ',
-      line.length,
-      'instead of ',
-      lineLength
-    );
-    throw new Error('Unexpected response length');
-  }
 
   if (checkCheckDigit(line)) {
     entry.id = parseInt(`${line.substr(0, 8)}`, 16);
-    entry.epoch = parseInt(`${line.substr(8, 8)}`, 16);
-    parseParameters(line, 16, numberLogParameters, entry);
+    entry.epoch = parseInt(`${line.substr(8, 8)}`, 16) * 1000;
+    entry.parameters = parseParameters(
+      line.substring(16, line.length - 6 - (hasEvent ? 8 : 0)),
+      options
+    );
 
-    let position = 16 + numberLogParameters * 4;
     if (hasEvent) {
-      entry.eventId = hexToInt16(line.substr(position, 4));
-      entry.eventValue = hexToInt16(line.substr(position + 4, 4));
-      position += 8;
+      entry.eventId = hexToInt16(line.substr(line.length - 14, 4));
+      entry.eventValue = hexToInt16(line.substr(line.length - 10, 4));
     }
 
-    entry.deviceId = hexToInt16(line.substr(position, 4));
+    entry.deviceId = hexToInt16(line.substr(line.length - 6, 4));
     if (!entry.deviceId) {
       throw new Error('Could not parse device id in processMultilogLine');
     }

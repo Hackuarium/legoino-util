@@ -32,6 +32,8 @@ module.exports = function createCompactLog(data = {}, numberParameters = 26) {
   result += int16ToHex(data.eventId);
   result += int16ToHex(data.eventValue);
   result += int16ToHex(data.deviceId);
-  result += int16ToHex(calculateCheckDigit(result));
+  result += calculateCheckDigit(result)
+    .toString(16)
+    .padStart(2, '0');
   return result.toUpperCase();
 };

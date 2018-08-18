@@ -5,38 +5,27 @@ const debug = require('debug')('legoino:parser:parseCompactLog');
 const deviceIdNumberToString = require('../util/deviceIdNumberToString');
 
 const checkCheckDigit = require('../util/checkCheckDigit');
+const calculateCheckDigit = require('../util/calculateCheckDigit');
 const hexToInt16 = require('../util/hexToInt16');
 const parseParameters = require('./parseParameters');
 
-module.exports = function parseCompactLog(line, numberParameters) {
-  var lineLength = numberParameters * 4 + 14;
-
-  // this line contains the 26 parameters as well as the check digit. We should
-  // only consider the line if the check digit is ok
-  const entry = {};
-  if (lineLength && line.length !== lineLength) {
-    debug(
-      'Unexpected response length: ',
-      line.length,
-      'instead of ',
-      lineLength
-    );
-    throw new Error('Unexpected response length');
-  }
-
+module.exports = function parseCompactLog(line, options) {
+  let entry = {};
   if (checkCheckDigit(line)) {
-    entry.epoch = parseInt(line.substring(0, 8), 16);
-    parseParameters(line, 8, numberParameters, entry);
-    entry.deviceId = hexToInt16(
-      line.substring(8 + numberParameters * 4, 12 + numberParameters * 4)
+    entry.epoch = parseInt(line.substring(0, 8), 16) * 1000;
+    entry.parameters = parseParameters(
+      line.substring(8, line.length - 6),
+      options
     );
-    if (!entry.deviceId) {
-      throw new Error('Could not parse device id in process StatusLine');
-    }
+    entry.deviceId = hexToInt16(
+      line.substring(line.length - 6, line.length - 2)
+    );
     entry.deviceCode = deviceIdNumberToString(entry.deviceId);
   } else {
     debug('Check digit error', line);
-    throw new Error('Check digit error');
+    throw new Error(
+      'Check digit error. Should be: ' + calculateCheckDigit(line).toString(16)
+    );
   }
   return entry;
 };

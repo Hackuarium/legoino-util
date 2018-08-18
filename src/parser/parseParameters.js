@@ -1,20 +1,65 @@
 'use strict';
 
+const DeviceInformation = require('legoino-device-information');
+
 const hexToInt16 = require('../util/hexToInt16');
 const numberToLabel = require('../util/numberToLabel');
 
-// Utility functions
-module.exports = function parseParameters(
-  line,
-  start,
-  numberParameters,
-  entry
-) {
-  for (var i = 0; i < numberParameters; i++) {
-    if (i === 0) entry.parameters = {};
-    var value = hexToInt16(line.substring(start + i * 4, start + 4 + i * 4));
-    if (value === -32768) value = null;
-    let label = numberToLabel(i);
-    entry.parameters[label] = value;
+/**
+ * Parse a buffer (String) containg 4 hexadecimal symbol per parameter
+ * @param {String} buffer
+ * @param {object} [options={}]
+ * @param {boolean} [options.parameterLabel=false] Use as property name the label name
+ * @param {boolean} [options.parameterInfo=false] Show in the value all the information about the parameter
+ * @param {object} [options.deviceInformation=undefined]
+ */
+module.exports = function parseParameters(buffer, options = {}) {
+  const {
+    parameterLabel = false,
+    parameterInfo = false,
+    deviceInformation = DeviceInformation[options.kind]
+  } = options;
+
+  if ((parameterLabel || parameterInfo) && !deviceInformation) {
+    throw Error(
+      'Device information is missing, can no add parameterLabel or parameterInfo'
+    );
   }
+
+  let numberOfParameters = buffer.length / 4;
+  if (
+    deviceInformation &&
+    numberOfParameters !== deviceInformation.numberOfParameters &&
+    numberOfParameters !== deviceInformation.numberLogParameters
+  ) {
+    throw Error(
+      'The number of parameters is not equal to the one described in the deviceInformation'
+    );
+  }
+
+  let parameters = {};
+  for (var i = 0; i < numberOfParameters; i++) {
+    if (
+      (!parameterLabel && !parameterInfo) ||
+      deviceInformation.parameters[i]
+    ) {
+      let valueNumber = hexToInt16(buffer.substring(i * 4, i * 4 + 4));
+      if (valueNumber === -32768) valueNumber = null;
+      let label = parameterLabel
+        ? deviceInformation.parameters[i].name
+        : numberToLabel(i);
+
+      let value;
+      if (parameterInfo) {
+        value = Object.assign({}, deviceInformation.parameters[i], {
+          value: valueNumber,
+          realValue: valueNumber / deviceInformation.parameters[i].factor
+        });
+      } else {
+        value = valueNumber;
+      }
+      parameters[label] = value;
+    }
+  }
+  return parameters;
 };
