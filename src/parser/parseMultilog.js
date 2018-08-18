@@ -6,8 +6,8 @@ const processMultilogLine = require('./processMultilogLine');
 
 /**
  * Parse a multilog file
- * @param {*} buffer 
- * @param {object} [options={}] 
+ * @param {*} buffer
+ * @param {object} [options={}]
  */
 
 module.exports = function parseMultiLog(buffer, options = {}) {
