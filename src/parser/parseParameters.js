@@ -14,17 +14,14 @@ const numberToLabel = require('../util/numberToLabel');
  * @param {object} [options.deviceInformation=undefined]
  */
 module.exports = function parseParameters(buffer, options = {}) {
-  const {
+  let {
     parameterLabel = false,
     parameterInfo = false,
     deviceInformation = DeviceInformation[options.kind]
   } = options;
 
-  if ((parameterLabel || parameterInfo) && !deviceInformation) {
-    throw Error(
-      'Device information is missing, can no add parameterLabel or parameterInfo'
-    );
-  }
+  let parameters = {};
+  let status = { isValid: true };
 
   let numberOfParameters = buffer.length / 4;
   if (
@@ -32,34 +29,43 @@ module.exports = function parseParameters(buffer, options = {}) {
     numberOfParameters !== deviceInformation.numberOfParameters &&
     numberOfParameters !== deviceInformation.numberLogParameters
   ) {
-    throw Error(
-      'The number of parameters is not equal to the one described in the deviceInformation'
-    );
+    status.isValid = false;
+    status.error =
+      'The number of parameters is not equal to the one described in the deviceInformation';
   }
 
-  let parameters = {};
-  for (var i = 0; i < numberOfParameters; i++) {
-    if (
-      (!parameterLabel && !parameterInfo) ||
-      deviceInformation.parameters[i]
-    ) {
-      let valueNumber = hexToInt16(buffer.substring(i * 4, i * 4 + 4));
-      if (valueNumber === -32768) valueNumber = null;
-      let label = parameterLabel
-        ? deviceInformation.parameters[i].name
-        : numberToLabel(i);
+  if (!deviceInformation) deviceInformation = { parameters: [] };
 
-      let value;
-      if (parameterInfo) {
-        value = Object.assign({}, deviceInformation.parameters[i], {
-          value: valueNumber,
-          realValue: valueNumber / deviceInformation.parameters[i].factor
-        });
-      } else {
-        value = valueNumber;
-      }
-      parameters[label] = value;
+  for (var i = 0; i < numberOfParameters; i++) {
+    if (!deviceInformation.parameters[i]) {
+      deviceInformation.parameters[i] = {
+        name: numberToLabel(i),
+        label: numberToLabel(i),
+        factor: 1
+      };
     }
+
+    let valueNumber = hexToInt16(buffer.substring(i * 4, i * 4 + 4));
+    if (valueNumber === -32768) valueNumber = null;
+
+    let label = parameterLabel
+      ? deviceInformation.parameters[i].name
+      : numberToLabel(i);
+
+    let value;
+    if (parameterInfo) {
+      value = Object.assign({}, deviceInformation.parameters[i], {
+        index: i,
+        value: valueNumber,
+        realValue:
+          valueNumber === null
+            ? null
+            : valueNumber / deviceInformation.parameters[i].factor
+      });
+    } else {
+      value = valueNumber;
+    }
+    parameters[label] = value;
   }
   return parameters;
 };
