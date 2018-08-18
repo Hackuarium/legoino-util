@@ -46,7 +46,7 @@ module.exports = function parseParameters(buffer, options = {}) {
     }
 
     let valueNumber = hexToInt16(buffer.substring(i * 4, i * 4 + 4));
-    if (valueNumber === -32768) valueNumber = null;
+    if (valueNumber === -32768) continue;
 
     let label = parameterLabel
       ? deviceInformation.parameters[i].name
@@ -57,10 +57,7 @@ module.exports = function parseParameters(buffer, options = {}) {
       value = Object.assign({}, deviceInformation.parameters[i], {
         index: i,
         value: valueNumber,
-        realValue:
-          valueNumber === null
-            ? null
-            : valueNumber / deviceInformation.parameters[i].factor
+        realValue: valueNumber / deviceInformation.parameters[i].factor
       });
     } else {
       value = valueNumber;
