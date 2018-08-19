@@ -60,7 +60,10 @@ module.exports = function parseParameters(buffer, options = {}) {
       value = Object.assign({}, deviceInformation.parameters[i], {
         index: i,
         value: valueNumber,
-        realValue: valueNumber / deviceInformation.parameters[i].factor
+        realValue:
+          valueNumber === undefined
+            ? valueNumber
+            : valueNumber / deviceInformation.parameters[i].factor
       });
     } else {
       value = valueNumber;
