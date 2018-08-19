@@ -7,10 +7,13 @@ const Solar2015 = require('legoino-device-information').Solar2015;
 test('parseParameters', () => {
   let parameters = parseParameters('00FF00FFFF00FF00');
   expect(parameters).toEqual({
-    A: 255,
-    B: 255,
-    C: -256,
-    D: -256
+    parameters: {
+      A: 255,
+      B: 255,
+      C: -256,
+      D: -256
+    },
+    parametersArray: [255, 255, -256, -256]
   });
 });
 
@@ -20,10 +23,13 @@ test('parseParameters with parameterLabel', () => {
     parameterLabel: true
   });
   expect(parameters).toEqual({
-    Humidity: -256,
-    Light: 255,
-    Pressure: -256,
-    Temperature: 255
+    parameters: {
+      Humidity: -256,
+      Light: 255,
+      Pressure: -256,
+      Temperature: 255
+    },
+    parametersArray: [255, 255, -256, -256]
   });
 });
 

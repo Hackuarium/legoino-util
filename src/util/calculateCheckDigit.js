@@ -5,5 +5,6 @@ module.exports = function calculateCheckDigit(hexString) {
   for (var i = 0; i < hexString.length; i = i + 2) {
     checkDigit ^= parseInt(`${hexString[i]}${hexString[i + 1]}`, 16);
   }
+  // console.log(checkDigit.toString(16));
   return checkDigit;
 };

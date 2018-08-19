@@ -16,7 +16,7 @@ module.exports = function parseCompactLog(line, options) {
     entry.parameters = parseParameters(
       line.substring(8, line.length - 6),
       options
-    );
+    ).parameters;
     entry.deviceId = hexToInt16(
       line.substring(line.length - 6, line.length - 2)
     );

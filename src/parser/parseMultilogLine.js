@@ -15,19 +15,17 @@ module.exports = function parseMultilogLine(line, options) {
   if (checkCheckDigit(line)) {
     entry.logId = parseInt(`${line.substr(0, 8)}`, 16);
     entry.epoch = parseInt(`${line.substr(8, 8)}`, 16) * 1000;
-    let parameters = parseParameters(
+    let parseResult = parseParameters(
       line.substring(16, line.length - 6 - (hasEvent ? 8 : 0)),
       options
     );
     if (flatten) {
-      Object.assign(entry, parameters);
+      Object.assign(entry, parseResult.parameters);
     } else {
-      entry.parameters = parameters;
+      entry.parameters = parseResult.parameters;
     }
     if (options.parametersArray) {
-      entry.parametersArray = Object.keys(entry.parameters).map(
-        (parameter) => entry.parameters[parameter]
-      );
+      entry.parametersArray = parseResult.parametersArray;
     }
 
     if (hasEvent) {

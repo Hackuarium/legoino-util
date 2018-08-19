@@ -43,3 +43,18 @@ test('parseMultilog flatten', () => {
 
   expect(result).toMatchSnapshot();
 });
+
+test('parseMultilog with null value', () => {
+  var buffer = `
+000100005B77EFBE8000000E003800000000000000000013000C00060000005100010011004080000000000004D284
+`;
+
+  let result = parseMultilog(buffer, {
+    parameterLabel: true,
+    parameterInfo: false,
+    parametersArray: true,
+    flatten: false
+  });
+
+  expect(result).toMatchSnapshot();
+});
