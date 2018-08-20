@@ -67,8 +67,8 @@ module.exports = function parseParameters(buffer, options = {}) {
       });
     } else {
       value = valueNumber === undefined
-            ? valueNumber
-            : valueNumber / deviceInformation.parameters[i].factor;
+        ? valueNumber
+        : valueNumber / deviceInformation.parameters[i].factor;
     }
     if (value !== undefined) parameters[label] = value;
     parametersArray.push(value);
