@@ -59,14 +59,16 @@ module.exports = function parseParameters(buffer, options = {}) {
     if (parameterInfo) {
       value = Object.assign({}, deviceInformation.parameters[i], {
         index: i,
-        value: valueNumber,
-        realValue:
+        originalValue: valueNumber,
+        value:
           valueNumber === undefined
             ? valueNumber
             : valueNumber / deviceInformation.parameters[i].factor
       });
     } else {
-      value = valueNumber;
+      value = valueNumber === undefined
+            ? valueNumber
+            : valueNumber / deviceInformation.parameters[i].factor;
     }
     if (value !== undefined) parameters[label] = value;
     parametersArray.push(value);
