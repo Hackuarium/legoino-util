@@ -42,7 +42,7 @@ module.exports = function parseParameters(buffer, options = {}) {
   for (var i = 0; i < numberOfParameters; i++) {
     if (!deviceInformation.parameters[i]) {
       deviceInformation.parameters[i] = {
-        name: numberToLabel(i),
+        variable: numberToLabel(i),
         label: numberToLabel(i),
         factor: 1
       };
@@ -52,21 +52,23 @@ module.exports = function parseParameters(buffer, options = {}) {
     if (valueNumber === -32768) valueNumber = undefined;
 
     let label = parameterLabel
-      ? deviceInformation.parameters[i].name
+      ? deviceInformation.parameters[i].variable || deviceInformation.parameters[i].name
       : numberToLabel(i);
 
     let value;
     if (parameterInfo) {
       value = Object.assign({}, deviceInformation.parameters[i], {
         index: i,
-        value: valueNumber,
-        realValue:
+        originalValue: valueNumber,
+        value:
           valueNumber === undefined
             ? valueNumber
             : valueNumber / deviceInformation.parameters[i].factor
       });
     } else {
-      value = valueNumber;
+      value = valueNumber === undefined
+        ? valueNumber
+        : valueNumber / deviceInformation.parameters[i].factor;
     }
     if (value !== undefined) parameters[label] = value;
     parametersArray.push(value);

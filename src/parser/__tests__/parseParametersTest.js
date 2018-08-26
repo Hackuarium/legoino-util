@@ -24,12 +24,12 @@ test('parseParameters with parameterLabel', () => {
   });
   expect(parameters).toEqual({
     parameters: {
-      Humidity: -256,
+      Humidity: -25.6,
       Light: 255,
       Pressure: -256,
-      Temperature: 255
+      Temperature: 2.55
     },
-    parametersArray: [255, 255, -256, -256]
+    parametersArray: [2.55, 255, -256, -25.6]
   });
 });
 

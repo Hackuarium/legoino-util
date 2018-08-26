@@ -1,6 +1,6 @@
 {
   "name": "legoino-util",
-  "version": "0.0.16",
+  "version": "0.0.19",
   "description": "",
   "main": "./src/index.js",
   "files": [
@@ -44,6 +44,6 @@
   },
   "dependencies": {
     "debug": "^3.1.0",
-    "legoino-device-information": "0.0.6"
+    "legoino-device-information": "0.0.7"
   }
 }
