@@ -13,7 +13,7 @@ module.exports = function parseMultilogLine(line, options) {
   const entry = {};
 
   if (checkCheckDigit(line)) {
-    entry.logId = parseInt(`${line.substr(0, 8)}`, 16);
+    entry.id = parseInt(`${line.substr(0, 8)}`, 16);
     entry.epoch = parseInt(`${line.substr(8, 8)}`, 16) * 1000;
     let parseResult = parseParameters(
       line.substring(16, line.length - 6 - (hasEvent ? 8 : 0)),
