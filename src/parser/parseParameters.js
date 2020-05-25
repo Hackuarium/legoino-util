@@ -19,7 +19,7 @@ module.exports = function parseParameters(buffer, options = {}) {
   let {
     parameterLabel = false,
     parameterInfo = false,
-    deviceInformation = DeviceInformation[options.kind]
+    deviceInformation = DeviceInformation[options.kind],
   } = options;
 
   let parameters = {};
@@ -39,12 +39,12 @@ module.exports = function parseParameters(buffer, options = {}) {
 
   if (!deviceInformation) deviceInformation = { parameters: [] };
 
-  for (var i = 0; i < numberOfParameters; i++) {
+  for (let i = 0; i < numberOfParameters; i++) {
     if (!deviceInformation.parameters[i]) {
       deviceInformation.parameters[i] = {
         variable: numberToLabel(i),
         label: numberToLabel(i),
-        factor: 1
+        factor: 1,
       };
     }
 
@@ -52,7 +52,8 @@ module.exports = function parseParameters(buffer, options = {}) {
     if (valueNumber === -32768) valueNumber = undefined;
 
     let label = parameterLabel
-      ? deviceInformation.parameters[i].variable || deviceInformation.parameters[i].name
+      ? deviceInformation.parameters[i].variable ||
+        deviceInformation.parameters[i].name
       : numberToLabel(i);
 
     let value;
@@ -63,12 +64,13 @@ module.exports = function parseParameters(buffer, options = {}) {
         value:
           valueNumber === undefined
             ? valueNumber
-            : valueNumber / deviceInformation.parameters[i].factor
+            : valueNumber / deviceInformation.parameters[i].factor,
       });
     } else {
-      value = valueNumber === undefined
-        ? valueNumber
-        : valueNumber / deviceInformation.parameters[i].factor;
+      value =
+        valueNumber === undefined
+          ? valueNumber
+          : valueNumber / deviceInformation.parameters[i].factor;
     }
     if (value !== undefined) parameters[label] = value;
     parametersArray.push(value);

@@ -3,7 +3,7 @@
 const legoinoUtil = require('..');
 
 describe('legoino-util test', () => {
-  test('Something to test', () => {
+  it('Something to test', () => {
     expect(legoinoUtil).toHaveProperty('parseMultilog');
     expect(legoinoUtil).toHaveProperty('parseCompactLog');
     expect(legoinoUtil).toHaveProperty('deviceIdNumberToString');

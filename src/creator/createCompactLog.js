@@ -13,13 +13,13 @@
  * This means that for 26 parameters, the length of a log is 134 hexadecimal characters.
  */
 
+const calculateCheckDigit = require('../util/calculateCheckDigit');
 const int16ToHex = require('../util/int16ToHex');
 const numberToLabel = require('../util/numberToLabel');
-const calculateCheckDigit = require('../util/calculateCheckDigit');
 
 module.exports = function createCompactLog(data = {}, numberParameters = 26) {
   if (!data.parameters) data.parameters = [];
-  var result = '';
+  let result = '';
   result += Number(data.id | 0)
     .toString(16)
     .padStart(8, '0');
@@ -33,8 +33,6 @@ module.exports = function createCompactLog(data = {}, numberParameters = 26) {
   result += int16ToHex(data.eventId);
   result += int16ToHex(data.eventValue);
   result += int16ToHex(data.deviceId);
-  result += calculateCheckDigit(result)
-    .toString(16)
-    .padStart(2, '0');
+  result += calculateCheckDigit(result).toString(16).padStart(2, '0');
   return result.toUpperCase();
 };
