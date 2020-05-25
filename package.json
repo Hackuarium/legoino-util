@@ -1,7 +1,7 @@
 {
   "name": "legoino-util",
   "version": "0.0.20",
-  "description": "",
+  "description": "Create and parse compact logs.",
   "main": "./src/index.js",
   "files": [
     "src"
