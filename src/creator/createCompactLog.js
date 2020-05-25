@@ -8,7 +8,8 @@
  * - a log event ID (4)
  * - a log event value (4)
  * - a device ID (4)
- * - a checkdigit (2) 
+ * - a checkdigit (2)
+ *
  * This means that for 26 parameters, the length of a log is 134 hexadecimal characters.
  */
 
