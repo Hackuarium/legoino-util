@@ -11,7 +11,7 @@ Create and parse compact logs.
 
 `$ npm install legoino-util`
 
-## [API Documentation](https://mljs.github.io/legoino-util/)
+## [API Documentation](https://hackuarium.github.io/legoino-util/)
 
 ## Example
 ### Create compact log
