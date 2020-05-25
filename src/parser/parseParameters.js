@@ -6,11 +6,11 @@ const hexToInt16 = require('../util/hexToInt16');
 const numberToLabel = require('../util/numberToLabel');
 
 /**
- * Parse a buffer (String) containg 4 hexadecimal symbol per parameter
+ * Parse a buffer (String) containing 4 hexadecimal symbols per parameter
  * @param {string} buffer
  * @param {object} [options={}]
- * @param {boolean} [options.parameterLabel=false] Use as property name the label name
- * @param {boolean} [options.parameterInfo=false] Show in the value all the information about the parameter
+ * @param {boolean} [options.parameterLabel=false] Use the label name as property name
+ * @param {boolean} [options.parameterInfo=false] Show all the information about the parameter in the value
  * @param {object} [options.deviceInformation=undefined]
  * @return {object}
  */

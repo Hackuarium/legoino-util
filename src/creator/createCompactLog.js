@@ -1,15 +1,15 @@
 'use strict';
 
 /**
- * A log entry is an haxadecimal line composed of :
- * - a sequendtial ID (8)
+ * A log entry is a hexadecimal line composed of :
+ * - a sequential ID (8)
  * - epoch (8)
  * - a list of parameters values (n * 4)
  * - a log event ID (4)
  * - a log event value (4)
  * - a device ID (4)
- * - a checkdigit (2)
- * This means that for 26 parameters the length is 134
+ * - a checkdigit (2) 
+ * This means that for 26 parameters, the length of a log is 134 hexadecimal characters.
  */
 
 const int16ToHex = require('../util/int16ToHex');
