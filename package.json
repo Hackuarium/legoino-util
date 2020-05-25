@@ -15,21 +15,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mljs/legoino-util.git"
+    "url": "https://github.com/Hackuarium/legoino-util.git"
   },
   "keywords": [
-    "machine",
-    "learning",
-    "data",
-    "mining",
-    "datamining"
+    "arduino",
+    "parser",
+    "logs"
   ],
   "author": "Luc Patiny <luc@patiny.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mljs/legoino-util/issues"
+    "url": "https://github.com/Hackuarium/legoino-util/issues"
   },
-  "homepage": "https://github.com/mljs/legoino-util#readme",
+  "homepage": "https://github.com/Hackuarium/legoino-util#readme",
   "jest": {
     "testEnvironment": "node"
   },
