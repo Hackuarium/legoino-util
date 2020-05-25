@@ -7,11 +7,12 @@
     "src"
   ],
   "scripts": {
+    "build": "cheminfo build",
     "eslint": "eslint src",
     "eslint-fix": "npm run eslint -- --fix",
-    "test": "run-s testonly eslint",
-    "testonly": "jest",
-    "build": "cheminfo build"
+    "test": "npm run test-coverage && npm run eslint",
+    "test-coverage": "jest --coverage",
+    "test-only": "jest"
   },
   "repository": {
     "type": "git",
