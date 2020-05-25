@@ -1,13 +1,14 @@
 <!doctype html>
 <html>
 <head>
-  <meta charset='utf-8' />
+  <meta charset='utf-8'>
   <title>legoino-util 0.0.20 | Documentation</title>
+  <meta name='description' content='Create and parse compact logs.'>
   <meta name='viewport' content='width=device-width,initial-scale=1'>
-  <link href='assets/bass.css' type='text/css' rel='stylesheet' />
-  <link href='assets/style.css' type='text/css' rel='stylesheet' />
-  <link href='assets/github.css' type='text/css' rel='stylesheet' />
-  <link href='assets/split.css' type='text/css' rel='stylesheet' />
+  <link href='assets/bass.css' rel='stylesheet'>
+  <link href='assets/style.css' rel='stylesheet'>
+  <link href='assets/github.css' rel='stylesheet'>
+  <link href='assets/split.css' rel='stylesheet'>
 </head>
 <body class='documentation m0'>
     <div class='flex'>
@@ -56,14 +57,14 @@
             </ul>
           </div>
           <div class='mt1 h6 quiet'>
-            <a href='http://documentation.js.org/reading-documentation.html'>Need help reading this?</a>
+            <a href='https://documentation.js.org/reading-documentation.html'>Need help reading this?</a>
           </div>
         </div>
       </div>
       <div id='split-right' class='relative overflow-auto height-viewport-100'>
         
           
-            <section class='p2 mb2 clearfix bg-white minishadow'>
+          <section class='p2 mb2 clearfix bg-white minishadow'>
 
   
   <div class='clearfix'>
@@ -73,27 +74,26 @@
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/Hackuarium/legoino-util/blob/2b9f9ac3641049c1f7d64668a70efbea29bf0c85/src/creator/createCompactLog.js#L15-L15'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:Hackuarium/legoino-util/blob/90171e714085956e4adf0abb606821de464639a2/src/creator/createCompactLog.js#L15-L15'>
       <span>src/creator/createCompactLog.js</span>
       </a>
     
   </div>
   
 
-  <p>A log entry is an haxadecimal line composed of :</p>
+  <p>A log entry is a hexadecimal line composed of :</p>
 <ul>
-<li>a sequendtial ID (8)</li>
+<li>a sequential ID (8)</li>
 <li>epoch (8)</li>
 <li>a list of parameters values (n * 4)</li>
 <li>a log event ID (4)</li>
 <li>a log event value (4)</li>
 <li>a device ID (4)</li>
 <li>a checkdigit (2)
-This means that for 26 parameters the length is 134</li>
+This means that for 26 parameters, the length of a log is 134 hexadecimal characters.</li>
 </ul>
 
-
-  <div class='pre p1 fill-light mt0'>int16ToHex</div>
+    <div class='pre p1 fill-light mt0'>int16ToHex</div>
   
   
 
@@ -102,6 +102,8 @@ This means that for 26 parameters the length is 134</li>
   
   
   
+  
+
   
 
   
@@ -124,7 +126,7 @@ This means that for 26 parameters the length is 134</li>
           
         
           
-            <section class='p2 mb2 clearfix bg-white minishadow'>
+          <section class='p2 mb2 clearfix bg-white minishadow'>
 
   
   <div class='clearfix'>
@@ -134,7 +136,7 @@ This means that for 26 parameters the length is 134</li>
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/Hackuarium/legoino-util/blob/2b9f9ac3641049c1f7d64668a70efbea29bf0c85/src/parser/parseMultilog.js#L13-L35'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:Hackuarium/legoino-util/blob/90171e714085956e4adf0abb606821de464639a2/src/parser/parseMultilog.js#L13-L35'>
       <span>src/parser/parseMultilog.js</span>
       </a>
     
@@ -143,8 +145,7 @@ This means that for 26 parameters the length is 134</li>
 
   <p>Parse a multilog file</p>
 
-
-  <div class='pre p1 fill-light mt0'>parseMultilog(buffer: any, options: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</div>
+    <div class='pre p1 fill-light mt0'>parseMultilog(buffer: any, options: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</div>
   
   
 
@@ -192,12 +193,14 @@ This means that for 26 parameters the length is 134</li>
   
 
   
+
+  
 </section>
 
           
         
           
-            <section class='p2 mb2 clearfix bg-white minishadow'>
+          <section class='p2 mb2 clearfix bg-white minishadow'>
 
   
   <div class='clearfix'>
@@ -207,17 +210,16 @@ This means that for 26 parameters the length is 134</li>
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/Hackuarium/legoino-util/blob/2b9f9ac3641049c1f7d64668a70efbea29bf0c85/src/parser/parseParameters.js#L18-L77'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:Hackuarium/legoino-util/blob/90171e714085956e4adf0abb606821de464639a2/src/parser/parseParameters.js#L18-L77'>
       <span>src/parser/parseParameters.js</span>
       </a>
     
   </div>
   
 
-  <p>Parse a buffer (String) containg 4 hexadecimal symbol per parameter</p>
+  <p>Parse a buffer (String) containing 4 hexadecimal symbols per parameter</p>
 
-
-  <div class='pre p1 fill-light mt0'>parseParameters(buffer: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, options: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></div>
+    <div class='pre p1 fill-light mt0'>parseParameters(buffer: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, options: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></div>
   
   
 
@@ -265,7 +267,7 @@ This means that for 26 parameters the length is 134</li>
   
     (default <code>false</code>)
   </td>
-  <td class='break-word'><span>Use as property name the label name
+  <td class='break-word'><span>Use the label name as property name
 </span></td>
 </tr>
 
@@ -276,7 +278,7 @@ This means that for 26 parameters the length is 134</li>
   
     (default <code>false</code>)
   </td>
-  <td class='break-word'><span>Show in the value all the information about the parameter
+  <td class='break-word'><span>Show all the information about the parameter in the value
 </span></td>
 </tr>
 
@@ -310,6 +312,8 @@ This means that for 26 parameters the length is 134</li>
 
       
     
+  
+
   
 
   
