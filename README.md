@@ -5,6 +5,8 @@
 [![David deps][david-image]][david-url]
 [![npm download][download-image]][download-url]
 
+Create and parse compact logs.
+
 ## Installation
 
 `$ npm install legoino-util`
