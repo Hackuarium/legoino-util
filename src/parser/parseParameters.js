@@ -11,7 +11,8 @@ const numberToLabel = require('../util/numberToLabel');
  * @param {object} [options={}]
  * @param {boolean} [options.parameterLabel=false] Use the label name as property name
  * @param {boolean} [options.parameterInfo=false] Show all the information about the parameter in the value
- * @param {object} [options.deviceInformation=undefined]
+ * @param {string} [options.kind=undefined] Specify a device type from those that exist in `legoino-device-information`
+ * @param {object} [options.deviceInformation=undefined] Pass information for a device that does not exist in `legoino-device-information`. To use if `options.kind` is undefined.
  * @return {object} The parsed parameters
  */
 
@@ -19,8 +20,12 @@ module.exports = function parseParameters(buffer, options = {}) {
   let {
     parameterLabel = false,
     parameterInfo = false,
-    deviceInformation = DeviceInformation[options.kind],
+    kind = undefined,
+    deviceInformation = DeviceInformation[kind],
   } = options;
+
+  // console.log(kind);
+  // console.log(deviceInformation);
 
   let parameters = {};
   let parametersArray = [];
