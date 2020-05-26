@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html>
 <head>
   <meta charset='utf-8'>
   <title>legoino-util 0.0.21 | Documentation</title>
@@ -20,18 +20,15 @@
             placeholder='Filter'
             id='filter-input'
             class='col12 block input'
-            spellcheck='false'
-            autocapitalize='off'
-            autocorrect='off'
             type='text' />
           <div id='toc'>
             <ul class='list-reset h5 py1-ul'>
               
                 
                 <li><a
-                  href='#int16tohex'
+                  href='#calculatecheckdigit'
                   class="">
-                  int16ToHex
+                  calculateCheckDigit
                   
                 </a>
                 
@@ -42,6 +39,16 @@
                   href='#parsemultilog'
                   class="">
                   parseMultilog
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#parsemultilogline'
+                  class="">
+                  parseMultilogLine
                   
                 </a>
                 
@@ -72,12 +79,12 @@
   
   <div class='clearfix'>
     
-    <h3 class='fl m0' id='int16tohex'>
-      int16ToHex
+    <h3 class='fl m0' id='calculatecheckdigit'>
+      calculateCheckDigit
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/Hackuarium/legoino-util/blob/9f85164fd83ae80959f92d4ddc949bca7f10f00a/src/creator/createCompactLog.js#L16-L16'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:Hackuarium/legoino-util/blob/e69334b32315b60ae947b31ae3b73dc8d9f9a6c0/src/creator/createCompactLog.js#L16-L16'>
       <span>src/creator/createCompactLog.js</span>
       </a>
     
@@ -96,7 +103,7 @@
 </ul>
 <p>This means that for 26 parameters, the length of a log is 134 hexadecimal characters.</p>
 
-    <div class='pre p1 fill-light mt0'>int16ToHex</div>
+    <div class='pre p1 fill-light mt0'>calculateCheckDigit</div>
   
   
 
@@ -105,8 +112,6 @@
   
   
   
-  
-
   
 
   
@@ -141,14 +146,14 @@
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/Hackuarium/legoino-util/blob/9f85164fd83ae80959f92d4ddc949bca7f10f00a/src/parser/parseMultilog.js#L13-L35'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:Hackuarium/legoino-util/blob/e69334b32315b60ae947b31ae3b73dc8d9f9a6c0/src/parser/parseMultilog.js#L13-L33'>
       <span>src/parser/parseMultilog.js</span>
       </a>
     
   </div>
   
 
-  <p>Parse a multilog file</p>
+  <p>Parse a multilog string</p>
 
     <div class='pre p1 fill-light mt0'>parseMultilog(buffer: any, options: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</div>
   
@@ -200,6 +205,135 @@
   
 
   
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='parsemultilogline'>
+      parseMultilogLine
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:Hackuarium/legoino-util/blob/e69334b32315b60ae947b31ae3b73dc8d9f9a6c0/src/parser/parseMultilogLine.js#L19-L54'>
+      <span>src/parser/parseMultilogLine.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Parse a multilog line</p>
+
+    <div class='pre p1 fill-light mt0'>parseMultilogLine(line: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, options: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>line</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>options</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>
+            = <code>{}</code>)</code>
+	    
+          </div>
+          
+          <table class='mt1 mb2 fixed-table h5 col-12'>
+            <colgroup>
+              <col width='30%' />
+              <col width='70%' />
+            </colgroup>
+            <thead>
+              <tr class='bold fill-light'>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody class='mt1'>
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>options.hasEvent</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>
+  
+    (default <code>true</code>)
+  </td>
+  <td class='break-word'><span>Specify wether the log contains an event
+</span></td>
+</tr>
+
+
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>options.flatten</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>
+  
+    (default <code>false</code>)
+  </td>
+  <td class='break-word'><span>The parsed log will have all properties at the same level (no sub-object for the parameters)
+</span></td>
+</tr>
+
+
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>options.parametersArray</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>
+  
+    (default <code>false</code>)
+  </td>
+  <td class='break-word'><span>Add an array with all the parameters to the result
+</span></td>
+</tr>
+
+
+              
+            </tbody>
+          </table>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code>:
+        The parsed line
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
 
   
 </section>
@@ -217,7 +351,7 @@
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/Hackuarium/legoino-util/blob/9f85164fd83ae80959f92d4ddc949bca7f10f00a/src/parser/parseParameters.js#L18-L77'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:Hackuarium/legoino-util/blob/e69334b32315b60ae947b31ae3b73dc8d9f9a6c0/src/parser/parseParameters.js#L19-L88'>
       <span>src/parser/parseParameters.js</span>
       </a>
     
@@ -292,11 +426,28 @@
 
               
                 <tr>
+  <td class='break-word'><span class='code bold'>options.kind</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>
+  
+    (default <code>undefined</code>)
+  </td>
+  <td class='break-word'><span>Specify a device type from those that exist in 
+<code>legoino-device-information</code>
+</span></td>
+</tr>
+
+
+              
+                <tr>
   <td class='break-word'><span class='code bold'>options.deviceInformation</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code>
   
     (default <code>undefined</code>)
   </td>
-  <td class='break-word'><span></span></td>
+  <td class='break-word'><span>Pass information for a device that does not exist in 
+<code>legoino-device-information</code>
+. To use if 
+<code>options.kind</code>
+ is undefined.
+</span></td>
 </tr>
 
 
@@ -315,12 +466,10 @@
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
       <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code>:
-        
+        The parsed parameters
 
       
     
-  
-
   
 
   
