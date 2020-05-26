@@ -5,7 +5,7 @@ const debug = require('debug')('legoino:parser:parseMutilog');
 const parseMultilogLine = require('./parseMultilogLine');
 
 /**
- * Parse a multilog file
+ * Parse a multilog string
  * @param {*} buffer
  * @param {object} [options={}]
  */

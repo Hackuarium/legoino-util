@@ -12,7 +12,7 @@ const numberToLabel = require('../util/numberToLabel');
  * @param {boolean} [options.parameterLabel=false] Use the label name as property name
  * @param {boolean} [options.parameterInfo=false] Show all the information about the parameter in the value
  * @param {object} [options.deviceInformation=undefined]
- * @return {object}
+ * @return {object} The parsed parameters
  */
 
 module.exports = function parseParameters(buffer, options = {}) {
@@ -75,5 +75,6 @@ module.exports = function parseParameters(buffer, options = {}) {
     if (value !== undefined) parameters[label] = value;
     parametersArray.push(value);
   }
+
   return { parameters, parametersArray };
 };

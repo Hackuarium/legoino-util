@@ -7,8 +7,17 @@ const hexToInt16 = require('../util/hexToInt16');
 
 const parseParameters = require('./parseParameters');
 
+/**
+ * Parse a multilog line
+ * @param {string} line
+ * @param {object} [options={}]
+ * @param {boolean} [options.hasEvent=true] Specify wether the log contains an event
+ * @param {boolean} [options.flatten=false] The parsed log will have all properties at the same level (no sub-object for the parameters)
+ * @param {boolean} [options.parametersArray=false] Add an array with all the parameters to the result
+ * @return {object} The parsed line
+ */
 module.exports = function parseMultilogLine(line, options) {
-  let { hasEvent = true, flatten } = options;
+  let { hasEvent = true, flatten = false, parametersArray = false } = options;
 
   const entry = {};
 
@@ -24,7 +33,7 @@ module.exports = function parseMultilogLine(line, options) {
     } else {
       entry.parameters = parseResult.parameters;
     }
-    if (options.parametersArray) {
+    if (parametersArray) {
       entry.parametersArray = parseResult.parametersArray;
     }
 
