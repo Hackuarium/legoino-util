@@ -61,6 +61,8 @@ module.exports = function parseParameters(buffer, options = {}) {
         deviceInformation.parameters[i].name
       : numberToLabel(i);
 
+    if (label === undefined) continue;
+
     let value;
     if (parameterInfo) {
       value = Object.assign({}, deviceInformation.parameters[i], {
@@ -69,14 +71,15 @@ module.exports = function parseParameters(buffer, options = {}) {
         value:
           valueNumber === undefined
             ? valueNumber
-            : valueNumber / deviceInformation.parameters[i].factor,
+            : valueNumber / (deviceInformation.parameters[i].factor || 1),
       });
     } else {
       value =
         valueNumber === undefined
           ? valueNumber
-          : valueNumber / deviceInformation.parameters[i].factor;
+          : valueNumber / (deviceInformation.parameters[i].factor || 1);
     }
+
     if (value !== undefined) parameters[label] = value;
     parametersArray.push(value);
   }
