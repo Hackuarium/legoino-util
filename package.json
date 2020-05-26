@@ -29,6 +29,13 @@
     "url": "https://github.com/Hackuarium/legoino-util/issues"
   },
   "homepage": "https://github.com/Hackuarium/legoino-util#readme",
+  "eslintConfig": {
+    "extends": "cheminfo-react",
+    "parser": "babel-eslint",
+    "rules": {
+      "import/no-unresolved": "off"
+    }
+  },
   "jest": {
     "testEnvironment": "node"
   },
@@ -45,6 +52,6 @@
   },
   "dependencies": {
     "debug": "^4.1.1",
-    "legoino-device-information": "0.1.0"
+    "legoino-device-information": "^0.1.0"
   }
 }
