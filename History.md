@@ -1,3 +1,12 @@
+## [0.0.22](https://github.com/Hackuarium/legoino-util/compare/v0.0.21...v0.0.22) (2020-05-26)
+
+
+### Bug Fixes
+
+* options ([dfdaa78](https://github.com/Hackuarium/legoino-util/commit/dfdaa78e7cfa7708c90394454c4cf5a9dba54797))
+
+
+
 ## [0.0.21](https://github.com/Hackuarium/legoino-util/compare/v0.0.20...v0.0.21) (2020-05-25)
 
 
