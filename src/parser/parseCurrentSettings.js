@@ -1,6 +1,6 @@
 'use strict';
 
-const debug = require('debug')('legoino:parser:parseCompactLog');
+const debug = require('debug')('legoino:parser:parseCurrentSettings');
 
 const calculateCheckDigit = require('../util/calculateCheckDigit');
 const checkCheckDigit = require('../util/checkCheckDigit');
@@ -9,7 +9,7 @@ const hexToInt16 = require('../util/hexToInt16');
 
 const parseParameters = require('./parseParameters');
 
-module.exports = function parseCompactLog(line, options) {
+module.exports = function parseCurrentSettings(line, options) {
   // keep only valid characters
   line = line.replace(/[^0-9A-F]/gi, '');
 
