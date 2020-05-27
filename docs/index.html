@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html>
 <head>
   <meta charset='utf-8'>
   <title>legoino-util 0.0.22 | Documentation</title>
@@ -20,9 +20,6 @@
             placeholder='Filter'
             id='filter-input'
             class='col12 block input'
-            spellcheck='false'
-            autocapitalize='off'
-            autocorrect='off'
             type='text' />
           <div id='toc'>
             <ul class='list-reset h5 py1-ul'>
@@ -32,6 +29,16 @@
                   href='#calculatecheckdigit'
                   class="">
                   calculateCheckDigit
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#parsecurrentsettings'
+                  class="">
+                  parseCurrentSettings
                   
                 </a>
                 
@@ -87,7 +94,7 @@
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/Hackuarium/legoino-util/blob/9c785518c9fce6adf82d2cf537ca5d0bb37508a4/src/creator/createCompactLog.js#L16-L16'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:Hackuarium/legoino-util/blob/b75b9d79a2c4f1bc5bb87212929475660013459f/src/creator/createCompactLog.js#L16-L16'>
       <span>src/creator/createCompactLog.js</span>
       </a>
     
@@ -134,6 +141,87 @@
   
 
   
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='parsecurrentsettings'>
+      parseCurrentSettings
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:Hackuarium/legoino-util/blob/b75b9d79a2c4f1bc5bb87212929475660013459f/src/parser/parseCurrentSettings.js#L20-L42'>
+      <span>src/parser/parseCurrentSettings.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Parse a current settings log.</p>
+
+    <div class='pre p1 fill-light mt0'>parseCurrentSettings(line: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, options: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>line</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>options</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>
+            = <code>{}</code>)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code>:
+        The parsed settings.
+<p>Warning: parameters that are undefined are not returned!</p>
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
 
   
 </section>
@@ -151,7 +239,7 @@
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/Hackuarium/legoino-util/blob/9c785518c9fce6adf82d2cf537ca5d0bb37508a4/src/parser/parseMultilog.js#L13-L33'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:Hackuarium/legoino-util/blob/b75b9d79a2c4f1bc5bb87212929475660013459f/src/parser/parseMultilog.js#L13-L33'>
       <span>src/parser/parseMultilog.js</span>
       </a>
     
@@ -210,8 +298,6 @@
   
 
   
-
-  
 </section>
 
           
@@ -227,14 +313,14 @@
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/Hackuarium/legoino-util/blob/9c785518c9fce6adf82d2cf537ca5d0bb37508a4/src/parser/parseMultilogLine.js#L19-L54'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:Hackuarium/legoino-util/blob/b75b9d79a2c4f1bc5bb87212929475660013459f/src/parser/parseMultilogLine.js#L21-L59'>
       <span>src/parser/parseMultilogLine.js</span>
       </a>
     
   </div>
   
 
-  <p>Parse a multilog line</p>
+  <p>Parse a multilog line.</p>
 
     <div class='pre p1 fill-light mt0'>parseMultilogLine(line: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, options: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></div>
   
@@ -326,12 +412,11 @@
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
       <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code>:
-        The parsed line
+        The parsed line.
+<p>Warning: parameters that are undefined are not returned!</p>
 
       
     
-  
-
   
 
   
@@ -360,7 +445,7 @@
     </h3>
     
     
-      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/Hackuarium/legoino-util/blob/9c785518c9fce6adf82d2cf537ca5d0bb37508a4/src/parser/parseParameters.js#L19-L88'>
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://git@github.com/:Hackuarium/legoino-util/blob/b75b9d79a2c4f1bc5bb87212929475660013459f/src/parser/parseParameters.js#L19-L88'>
       <span>src/parser/parseParameters.js</span>
       </a>
     
@@ -479,8 +564,6 @@
 
       
     
-  
-
   
 
   
