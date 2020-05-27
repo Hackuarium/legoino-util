@@ -9,7 +9,7 @@ const numberToLabel = require('../util/numberToLabel');
  * Parse a buffer (String) containing 4 hexadecimal symbols per parameter
  * @param {string} buffer
  * @param {object} [options={}]
- * @param {boolean} [options.parameterLabel=false] Use the label name as property name
+ * @param {boolean} [options.parameterLabel=false] Use the variable property of device info as property name
  * @param {boolean} [options.parameterInfo=false] Show all the information about the parameter in the value
  * @param {string} [options.kind=undefined] Specify a device type from those that exist in `legoino-device-information`
  * @param {object} [options.deviceInformation=undefined] Pass information for a device that does not exist in `legoino-device-information`. To use if `options.kind` is undefined.
