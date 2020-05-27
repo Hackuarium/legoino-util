@@ -33,3 +33,33 @@ test('lowercase hex characters', () => {
 
   expect(result).toMatchSnapshot();
 });
+
+test('flatten option', () => {
+  let buffer = '000100000001000200030004414105';
+
+  let result = parseCurrentSettings(buffer, { flatten: true });
+
+  expect(result).toStrictEqual({
+    epoch: 65536000,
+    A: 1,
+    B: 2,
+    C: 3,
+    D: 4,
+    deviceId: 16705,
+    deviceCode: 'AA',
+  });
+});
+
+test('parametersArray option', () => {
+  let buffer = '000100000001000200030004414105';
+
+  let result = parseCurrentSettings(buffer, { parametersArray: true });
+
+  expect(result).toStrictEqual({
+    epoch: 65536000,
+    parameters: { A: 1, B: 2, C: 3, D: 4 },
+    parametersArray: [1, 2, 3, 4],
+    deviceId: 16705,
+    deviceCode: 'AA',
+  });
+});
