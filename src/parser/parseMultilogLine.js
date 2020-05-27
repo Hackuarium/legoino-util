@@ -14,6 +14,10 @@ const parseParameters = require('./parseParameters');
  * @param {boolean} [options.hasEvent=true] Specify wether the log contains an event
  * @param {boolean} [options.flatten=false] The parsed log will have all properties at the same level (no sub-object for the parameters)
  * @param {boolean} [options.parametersArray=false] Add an array with all the parameters to the result
+ * @param {boolean} [options.parameterLabel=false] Use the variable property of device info as property name
+ * @param {boolean} [options.parameterInfo=false] Show all the information about the parameter in the value
+ * @param {string} [options.kind=undefined] Specify a device type from those that exist in `legoino-device-information`
+ * @param {object} [options.deviceInformation=undefined] Pass information for a device that does not exist in `legoino-device-information`. To use if `options.kind` is undefined.
  * @return {object} The parsed line.
  *
  * Warning: parameters that are undefined are not returned!
