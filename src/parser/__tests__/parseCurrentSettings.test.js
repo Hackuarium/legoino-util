@@ -63,3 +63,38 @@ test('parametersArray option', () => {
     deviceCode: 'AA',
   });
 });
+
+test('parameterLabel and kind options', () => {
+  let buffer =
+    '5ECDFB908000097900C80BB8F04200960004F8D9BCA4FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000A000000140005FFFFFFFFFFFF001E001EC6C3F8DBFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0007243246';
+
+  let result = parseCurrentSettings(buffer, {
+    parameterLabel: true,
+    kind: 'OpenBio',
+  });
+
+  expect(result).toStrictEqual({
+    deviceCode: '$2',
+    deviceId: 9266,
+    epoch: 1590557584000,
+    parameters: {
+      enable: 7,
+      error: 10,
+      filledTime: 30,
+      grWeight: 150,
+      maxWeight: -17244,
+      minWeight: -1831,
+      pcbTemp: 24.25,
+      pidTemp: 200,
+      sedTime: 30,
+      status: 0,
+      stepperSpeed: 20,
+      stepperSteps: 5,
+      targetTemp: 30,
+      weight: -4030,
+      weightFactor: -14653,
+      weightOffset: -1829,
+      weightSinceLast: 4,
+    },
+  });
+});
