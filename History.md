@@ -1,3 +1,7 @@
+# [1.1.0](https://github.com/Hackuarium/legoino-util/compare/v1.0.0...v1.1.0) (2020-05-27)
+
+
+
 # [1.0.0](https://github.com/Hackuarium/legoino-util/compare/v0.0.22...v1.0.0) (2020-05-27)
 
 
