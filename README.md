@@ -40,18 +40,18 @@ let result = createCompactLog(
 // result is a string with value '0000FFFF00007FFF000100020003000400050006AAAA87'
 ```
 
-### Parse compact log
+### Parse current settings
 
 ```js
 'use strict';
 
-const { parseCompactLog } = require('legoino-util');
+const { parseCurrentSettings } = require('legoino-util');
 
-let result = parseCompactLog('0000FFFF00007FFF000100020003000400050006AAAA87');
+let result = parseCurrentSettings('0000FFFF00007FFF000100020003000400050006AAAA87');
 // result is a JSON (object)
 ```
 
-### Parse compact multi-logs
+### Parse multi-logs
 
 Parse many lines of logs in one go. The lines must be separated by carriage returns.
 
