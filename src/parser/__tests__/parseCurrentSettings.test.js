@@ -31,5 +31,5 @@ test('lowercase hex characters', () => {
 
   let result = parseCurrentSettings(buffer, {});
 
-  expect(result).toStrictEqual();
+  expect(result).toMatchSnapshot();
 });
