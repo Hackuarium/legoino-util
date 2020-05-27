@@ -10,6 +10,9 @@ const hexToInt16 = require('../util/hexToInt16');
 const parseParameters = require('./parseParameters');
 
 module.exports = function parseCompactLog(line, options) {
+  // keep only valid characters
+  line = line.replace(/[^0-9A-F]/gi, '');
+
   let entry = {};
   if (checkCheckDigit(line)) {
     entry.epoch = parseInt(line.substring(0, 8), 16) * 1000;

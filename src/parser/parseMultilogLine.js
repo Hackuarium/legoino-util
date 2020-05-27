@@ -19,6 +19,9 @@ const parseParameters = require('./parseParameters');
 module.exports = function parseMultilogLine(line, options) {
   let { hasEvent = true, flatten = false, parametersArray = false } = options;
 
+  // keep only valid characters
+  line = line.replace(/[^0-9A-F]/gi, '');
+
   const entry = {};
 
   if (checkCheckDigit(line)) {
