@@ -9,6 +9,14 @@ const hexToInt16 = require('../util/hexToInt16');
 
 const parseParameters = require('./parseParameters');
 
+/**
+ * Parse a current settings log.
+ * @param {string} line
+ * @param {object} [options={}]
+ * @return {object} The parsed settings.
+ *
+ * Warning: parameters that are undefined are not returned!
+ */
 module.exports = function parseCurrentSettings(line, options) {
   // keep only valid characters
   line = line.replace(/[^0-9A-F]/gi, '');
