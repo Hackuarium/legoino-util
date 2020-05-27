@@ -1,3 +1,13 @@
+# [1.0.0](https://github.com/Hackuarium/legoino-util/compare/v0.0.22...v1.0.0) (2020-05-27)
+
+
+### Bug Fixes
+
+* changing imports after parseCompactLog rename ([b75b9d7](https://github.com/Hackuarium/legoino-util/commit/b75b9d79a2c4f1bc5bb87212929475660013459f))
+* keep only valid characters in log ([df974c5](https://github.com/Hackuarium/legoino-util/commit/df974c50ef0c1b1cbbaa086ff94552d21be6b6fa))
+
+
+
 ## [0.0.22](https://github.com/Hackuarium/legoino-util/compare/v0.0.21...v0.0.22) (2020-05-26)
 
 
