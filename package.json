@@ -41,9 +41,9 @@
   },
   "devDependencies": {
     "cheminfo-tools": "^1.23.3",
-    "eslint": "^7.1.0",
+    "eslint": "^7.2.0",
     "eslint-config-cheminfo": "^4.0.0",
-    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-import": "^2.21.2",
     "eslint-plugin-jest": "^23.13.2",
     "eslint-plugin-prettier": "^3.1.3",
     "jest": "^26.0.1",
@@ -52,6 +52,6 @@
   },
   "dependencies": {
     "debug": "^4.1.1",
-    "legoino-device-information": "^0.1.3"
+    "legoino-device-information": "^0.1.4"
   }
 }
