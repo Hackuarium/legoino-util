@@ -75,7 +75,7 @@ test('parse OpenBio with labels', () => {
         status: 0,
         targetTemp: 30,
         weight: -4060,
-        weightSinceLast: 4,
+        waitSinceLast: 4,
       },
     },
   ]);

@@ -88,13 +88,14 @@ test('parameterLabel and kind options', () => {
       pidTemp: 200,
       sedTime: 30,
       status: 0,
+      stepperOffDelay: -1,
       stepperSpeed: 20,
       stepperSteps: 5,
       targetTemp: 30,
       weight: -4030,
       weightFactor: -14653,
       weightOffset: -1829,
-      weightSinceLast: 4,
+      waitSinceLast: 4,
     },
   });
 });
