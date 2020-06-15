@@ -1,3 +1,18 @@
+# [1.2.0](https://github.com/Hackuarium/legoino-util/compare/v1.1.3...v1.2.0) (2020-06-15)
+
+
+### Bug Fixes
+
+* made valueToRawNumber public ([dba783a](https://github.com/Hackuarium/legoino-util/commit/dba783a1802919ef3c57637d61dee7a85efa1c42))
+
+
+### Features
+
+* add flags parsing option, close [#6](https://github.com/Hackuarium/legoino-util/issues/6) ([7abce37](https://github.com/Hackuarium/legoino-util/commit/7abce37081c2fa4387cf8954a27e6910f7d70047))
+* close [#7](https://github.com/Hackuarium/legoino-util/issues/7) ([0814261](https://github.com/Hackuarium/legoino-util/commit/0814261fd777b829d9a3ace75759f525a6c1c686))
+
+
+
 ## [1.1.3](https://github.com/Hackuarium/legoino-util/compare/v1.1.2...v1.1.3) (2020-06-10)
 
 
