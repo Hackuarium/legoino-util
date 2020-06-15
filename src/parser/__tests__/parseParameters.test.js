@@ -40,3 +40,23 @@ test('parseParameters with parameterInfo', () => {
   });
   expect(parameters).toMatchSnapshot();
 });
+
+test('parseParameters with flagInfo', () => {
+  // parameter Z is the last four symbols of the buffer
+  let parameters = parseParameters(
+    '00FF00FFFF00FF0000FF00FFFF00FF0000FF00FFFF00FF00FFFF00FF00FFFF00FF0000FF00FFFF00FF0000FF00FFFF00FF000011',
+    {
+      kind: 'OpenBio',
+      parameterInfo: true,
+      flagInfo: true,
+    },
+  ).parameters;
+  expect(parameters.Z.flags).toStrictEqual({
+    stepper: { bit: 0, description: 'Stepper running', value: 1 },
+    food: { bit: 1, description: 'Food running', value: 0 },
+    pid: { bit: 2, description: 'PID running', value: 0 },
+    sedimentation: { bit: 7, description: 'Sedimentation running', value: 0 },
+    filling: { bit: 8, description: 'Filling tank', value: 0 },
+    emptying: { bit: 9, description: 'Emptying tank', value: 0 },
+  });
+});

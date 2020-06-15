@@ -11,6 +11,7 @@ const numberToLabel = require('../util/numberToLabel');
  * @param {object} [options={}]
  * @param {boolean} [options.parameterLabel=false] Use the variable property of device info as property name
  * @param {boolean} [options.parameterInfo=false] Show all the information about the parameter in the value
+ * @param {boolean} [options.flagInfo=false] Show all the information about the flags, can only be true if `options.parameterInfo=true`!
  * @param {string} [options.kind=undefined] Specify a device type from those that exist in `legoino-device-information`
  * @param {object} [options.deviceInformation=undefined] Pass information for a device that does not exist in `legoino-device-information`. To use if `options.kind` is undefined.
  * @return {object} The parsed parameters
@@ -20,31 +21,35 @@ module.exports = function parseParameters(buffer, options = {}) {
   let {
     parameterLabel = false,
     parameterInfo = false,
+    flagInfo = false,
     kind = undefined,
     deviceInformation = DeviceInformation[kind],
   } = options;
+
+  if (parameterInfo === false && flagInfo === true) {
+    throw new Error('parameterInfo must be true when flagInfo is true');
+  }
 
   // console.log(kind);
   // console.log(deviceInformation);
 
   let parameters = {};
   let parametersArray = [];
-  let status = { isValid: true };
 
-  let numberOfParameters = buffer.length / 4;
+  let numberParameters = buffer.length / 4;
   if (
     deviceInformation &&
-    numberOfParameters !== deviceInformation.numberOfParameters &&
-    numberOfParameters !== deviceInformation.numberLogParameters
+    numberParameters !== deviceInformation.numberParameters &&
+    numberParameters !== deviceInformation.numberLogParameters
   ) {
-    status.isValid = false;
-    status.error =
-      'The number of parameters is not equal to the one described in the deviceInformation';
+    throw new Error(
+      'The number of parameters is not equal to the one described in the deviceInformation',
+    );
   }
 
   if (!deviceInformation) deviceInformation = { parameters: [] };
 
-  for (let i = 0; i < numberOfParameters; i++) {
+  for (let i = 0; i < numberParameters; i++) {
     if (!deviceInformation.parameters[i]) {
       deviceInformation.parameters[i] = {
         variable: numberToLabel(i),
@@ -73,6 +78,17 @@ module.exports = function parseParameters(buffer, options = {}) {
             ? valueNumber
             : valueNumber / (deviceInformation.parameters[i].factor || 1),
       });
+      if (flagInfo) {
+        let flags = deviceInformation.parameters[i].flags;
+
+        if (flags === undefined) continue;
+        for (let key in flags) {
+          flags[key].value =
+            (value.value & (1 << flags[key].bit)) >> flags[key].bit;
+        }
+
+        value.flags = flags;
+      }
     } else {
       value =
         valueNumber === undefined
