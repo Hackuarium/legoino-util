@@ -7,6 +7,7 @@ module.exports = {
   deviceIdNumberToString: require('./util/deviceIdNumberToString'),
   deviceIdStringToNumber: require('./util/deviceIdStringToNumber'),
   calculateCheckDigit: require('./util/calculateCheckDigit'),
+  valueToRawNumber: require('./util/valueToRawNumber'),
   createCompactLog: require('./creator/createCompactLog'),
   DevicesInfo: require('legoino-device-information'),
 };
