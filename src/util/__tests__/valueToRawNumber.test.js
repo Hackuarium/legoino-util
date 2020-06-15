@@ -1,11 +1,9 @@
 'use strict';
 
-const int16ToHex = require('../int16ToHex');
+const valueToRawNumber = require('../valueToRawNumber');
 
 test('int16ToHex', () => {
-  expect(int16ToHex(0)).toBe('0000');
-  expect(int16ToHex(255)).toBe('00FF');
-  expect(int16ToHex(32767)).toBe('7FFF');
-  expect(int16ToHex(-1)).toBe('FFFF');
-  expect(int16ToHex(-32768)).toBe('8000');
+  expect(valueToRawNumber('A', 50.5, 'OpenBio')).toBe(5050);
+  expect(valueToRawNumber('C', 5, 'OpenBio')).toBe(5);
+  expect(valueToRawNumber('J', 10, 'OpenBio')).toBe(10);
 });

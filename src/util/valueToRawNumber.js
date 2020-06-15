@@ -6,5 +6,7 @@ const labelToNumber = require('./labelToNumber');
 
 module.exports = function valueToRawNumber(label, value, kind) {
   const deviceInformation = DeviceInformation[kind];
-  return value * (deviceInformation[labelToNumber(label)].factor || 1);
+  return (
+    value * (deviceInformation.parameters[labelToNumber(label)].factor || 1)
+  );
 };
