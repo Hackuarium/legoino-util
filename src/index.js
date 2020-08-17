@@ -10,4 +10,6 @@ module.exports = {
   valueToRawNumber: require('./util/valueToRawNumber'),
   createCompactLog: require('./creator/createCompactLog'),
   DevicesInfo: require('legoino-device-information'),
+  labelToNumber: require('./util/labelToNumber'),
+  numberToLabel: require('./util/labelToNumber'),
 };
