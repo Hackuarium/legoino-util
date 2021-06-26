@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.7.0](https://www.github.com/Hackuarium/legoino-util/compare/v1.6.0...v1.7.0) (2021-06-26)
+
+
+### Features
+
+* add DevicesInfo.fromDeviceID ([a2ac1b7](https://www.github.com/Hackuarium/legoino-util/commit/a2ac1b7a6529389c37258e0250f1d67827276aca))
+
+
+### Bug Fixes
+
+* build script for lactame.com ([f331b5c](https://www.github.com/Hackuarium/legoino-util/commit/f331b5c967fc69203d31f10df280c5930f0cb20f))
+
 ## [1.6.0](https://github.com/Hackuarium/legoino-util/compare/v1.3.1...v1.6.0) (2021-06-26)
 
 
@@ -114,6 +126,3 @@
 
 <a name="0.0.2"></a>
 ## 0.0.2 (2018-08-16)
-
-
-
