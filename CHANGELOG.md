@@ -1,3 +1,5 @@
+# Changelog
+
 ## [1.6.0](https://github.com/Hackuarium/legoino-util/compare/v1.3.1...v1.6.0) (2021-06-26)
 
 
