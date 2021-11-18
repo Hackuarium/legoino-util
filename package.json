@@ -55,6 +55,6 @@
   },
   "dependencies": {
     "debug": "^4.3.1",
-    "legoino-device-information": "^1.2.0"
+    "legoino-device-information": "^2.0.0"
   }
 }
