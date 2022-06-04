@@ -9,7 +9,7 @@ const numberToLabel = require('../util/numberToLabel');
  * Parse a buffer (String) containing 4 hexadecimal symbols per parameter
  * @param {string} buffer
  * @param {object} [options={}]
- * @param {boolean} [options.parameterLabel=false] Use the variable property of device info as property name
+ * @param {boolean} [options.parameterLabel=false] Use the variable name of device info as property name
  * @param {boolean} [options.parameterInfo=false] Show all the information about the parameter in the value
  * @param {boolean} [options.flagInfo=false] Show all the information about the flags, can only be true if `options.parameterInfo=true`!
  * @param {string} [options.kind=undefined] Specify a device type from those that exist in `legoino-device-information`
@@ -29,9 +29,6 @@ module.exports = function parseParameters(buffer, options = {}) {
   if (parameterInfo === false && flagInfo === true) {
     throw new Error('parameterInfo must be true when flagInfo is true');
   }
-
-  // console.log(kind);
-  // console.log(deviceInformation);
 
   let parameters = {};
   let parametersArray = [];
@@ -60,12 +57,10 @@ module.exports = function parseParameters(buffer, options = {}) {
 
     let valueNumber = hexToInt16(buffer.substring(i * 4, i * 4 + 4));
     if (valueNumber === -32768) valueNumber = undefined;
-
     let label = parameterLabel
       ? deviceInformation.parameters[i].variable ||
         deviceInformation.parameters[i].name
       : numberToLabel(i);
-
     if (label === undefined) continue;
 
     let value;
@@ -81,13 +76,13 @@ module.exports = function parseParameters(buffer, options = {}) {
       if (flagInfo) {
         let flags = deviceInformation.parameters[i].flags;
 
-        if (flags === undefined) continue;
-        for (let key in flags) {
-          flags[key].value =
-            (value.value & (1 << flags[key].bit)) >> flags[key].bit;
+        if (flags !== undefined) {
+          for (let key in flags) {
+            flags[key].value =
+              (value.value & (1 << flags[key].bit)) >> flags[key].bit;
+          }
+          value.flags = flags;
         }
-
-        value.flags = flags;
       }
     } else {
       value =
@@ -95,10 +90,8 @@ module.exports = function parseParameters(buffer, options = {}) {
           ? valueNumber
           : valueNumber / (deviceInformation.parameters[i].factor || 1);
     }
-
     if (value !== undefined) parameters[label] = value;
     parametersArray.push(value);
   }
-
   return { parameters, parametersArray };
 };

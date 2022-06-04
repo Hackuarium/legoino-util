@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`parseParameters with parameterInfo 1`] = `
+exports[`parseParameters parseParameters with parameterInfo 1`] = `
 Object {
   "parameters": Object {
     "A": Object {
