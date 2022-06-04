@@ -62,7 +62,7 @@ describe('parseParameters', () => {
     });
   });
 
-  it.only('SimpleSpectro Missing parameters', () => {
+  it('SimpleSpectro Missing parameters', () => {
     // parameter Z is the last four symbols of the buffer
     let parameters = parseParameters(
       '00FF00FFFF00FF0000FF00FFFF00FF0000FF00FFFF00FF00FFFF00FF00FFFF00FF0000FF00FFFF00FF0000FF00FFFF00FF000011',
