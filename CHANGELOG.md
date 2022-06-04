@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.8.0](https://www.github.com/Hackuarium/legoino-util/compare/v1.7.0...v1.8.0) (2022-06-04)
+
+
+### Features
+
+* update device-information for beemos ([49ef08a](https://www.github.com/Hackuarium/legoino-util/commit/49ef08a15ad2703bbf1d5f65090060ecc9e36881))
+
+
+### Bug Fixes
+
+* update legoino-device-information ([4d9159e](https://www.github.com/Hackuarium/legoino-util/commit/4d9159e63b6ac16f7e27b84a82980f55fd1faad1))
+
 ## [1.7.0](https://www.github.com/Hackuarium/legoino-util/compare/v1.6.0...v1.7.0) (2021-06-26)
 
 
