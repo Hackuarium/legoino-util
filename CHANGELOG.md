@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.0.1](https://www.github.com/Hackuarium/legoino-util/compare/v2.0.0...v2.0.1) (2022-06-05)
+
+
+### Bug Fixes
+
+* add more debug info ([4676769](https://www.github.com/Hackuarium/legoino-util/commit/467676919c81437021729289fe7887b8cbf45007))
+
 ## [2.0.0](https://www.github.com/Hackuarium/legoino-util/compare/v1.8.0...v2.0.0) (2022-06-05)
 
 
