@@ -40,7 +40,7 @@ module.exports = function parseParameters(buffer, options = {}) {
     numberParameters !== deviceInformation.numberLogParameters
   ) {
     throw new Error(
-      `The number of parameters is not equal to the one described in the deviceInformation. ${deviceInformation.numberParameters} != ${deviceInformation.numberLogParameters}`,
+      `The number of parameters is not equal to the one described in the deviceInformation. ${buffer} ${kind} ${deviceInformation.numberParameters} != ${deviceInformation.numberLogParameters}`,
     );
   }
 
