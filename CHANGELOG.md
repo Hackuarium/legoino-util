@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.0.0](https://www.github.com/Hackuarium/legoino-util/compare/v1.8.0...v2.0.0) (2022-06-05)
+
+
+### ⚠ BREAKING CHANGES
+
+* add createMultiLog
+
+### Features
+
+* add createMultiLog ([a4aed0a](https://www.github.com/Hackuarium/legoino-util/commit/a4aed0a91a2615e3710ad347296e7c4a6ead4b32))
+* add debug info if not correct number of parameters ([5b039ed](https://www.github.com/Hackuarium/legoino-util/commit/5b039ed10f93efb741d77a1739bdc0b1dbddc360))
+
 ## [1.8.0](https://www.github.com/Hackuarium/legoino-util/compare/v1.7.0...v1.8.0) (2022-06-04)
 
 
