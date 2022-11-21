@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.0.2](https://www.github.com/Hackuarium/legoino-util/compare/v2.0.1...v2.0.2) (2022-11-21)
+
+
+### Bug Fixes
+
+* update legoino-devices-information ([43ba3b5](https://www.github.com/Hackuarium/legoino-util/commit/43ba3b55b791a1f816d048bd316a9156b2899ed7))
+
 ### [2.0.1](https://www.github.com/Hackuarium/legoino-util/compare/v2.0.0...v2.0.1) (2022-06-05)
 
 
