@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.0.4](https://www.github.com/Hackuarium/legoino-util/compare/v2.0.3...v2.0.4) (2022-11-23)
+
+
+### Bug Fixes
+
+* update legoino-devide-information ([adcb8bd](https://www.github.com/Hackuarium/legoino-util/commit/adcb8bdcb4309e9af56adaff919c448c30cefbee))
+
 ### [2.0.3](https://www.github.com/Hackuarium/legoino-util/compare/v2.0.2...v2.0.3) (2022-11-23)
 
 
